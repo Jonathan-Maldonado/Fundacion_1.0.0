@@ -10,7 +10,7 @@ let app = express();
 
 // Routes
 let usuarioRoutes = require ("./src/routes/usuario");
-const { registrarUsuario } = require("./src/controllers/usuario");
+let ChicosAP = require ("./src/routes/chicosAp")
 
 // Connect Mongo mongodb://localhost:27017/
 mongoose.connect(
@@ -34,6 +34,7 @@ app.use(bodyParser.json());
 
 // Ruta a Usar
 app.use("/api", usuarioRoutes);
+app.use("/api", ChicosAP)
 
 // Exports
 module.exports = app;
