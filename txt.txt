@@ -1,3 +1,4 @@
 Voluntariado
-apadrinamiento -- Producto
-niños -- Categoria
+
+curso = niños
+categoria = padrinos

@@ -9,12 +9,13 @@ let port = process.env.PORT || 3001;
 let app = express();
 
 // Routes
-let usuarioRoutes = require ("./src/routes/usuario");
-let ChicosAP = require ("./src/routes/chicosAp")
+let UsuarioRoutes = require("./resources/routes/usuario");
+let Apadrinados = require("./resources/routes/apadrinados");
+let Padrinos = require("./resources/routes/padrinos");
 
 // Connect Mongo mongodb://localhost:27017/
 mongoose.connect(
-  "mongodb://localhost:27017/fundaciondb",
+  "mongodb://localhost:27017/fundacionYJdb",
   { useUnifiedTopology: true, useNewUrlParser: true },
   (err, res) => {
     if (err) {
@@ -29,12 +30,13 @@ mongoose.connect(
 );
 
 // Url
-app.use(bodyParser.urlencoded ({ extended:true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Ruta a Usar
-app.use("/api", usuarioRoutes);
-app.use("/api", ChicosAP)
+app.use("/api", UsuarioRoutes);
+app.use("/api", Apadrinados);
+app.use("/api", Padrinos)
 
 // Exports
 module.exports = app;
